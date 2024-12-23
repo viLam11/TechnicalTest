@@ -1,5 +1,8 @@
 # GeekUp Technical Test
 
+**PROJECT is deployed at: [https://technical-test-gules-eight.vercel.app/](https://technical-test-gules-eight.vercel.app/)**
+
+
 This project is a React application for managing albums and users. It includes features such as viewing album details, user details, and pagination.
 
 ## Table of Contents
