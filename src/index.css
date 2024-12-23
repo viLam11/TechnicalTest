@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer utilities {
+    .text-indent-sm {
+      text-indent: 10px;
+    }
+    .text-indent-md {
+      text-indent: 20px;
+    }
+    .text-indent-lg {
+      text-indent: 30px;
+    }
+}
