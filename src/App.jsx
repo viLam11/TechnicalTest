@@ -2,6 +2,7 @@ import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Test from "./pages/Test";
 import User from "./pages/Users";
 import Album from "./pages/Album";
+import AlbumDetail from "./pages/AlbumDetail";
 function App() {
   return (
     <Router
@@ -12,7 +13,9 @@ function App() {
     > 
       <Routes>
         <Route path="/user" element={<User />} />
+        <Route path="/user/:userID" element={<User />} />
         <Route path="/album" element={<Album />} /> 
+        <Route path="/album/:albumID" element={<AlbumDetail />} /> 
         <Route path="/test" element={<Test />} />  
 
       </Routes>
