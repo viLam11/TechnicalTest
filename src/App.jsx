@@ -3,6 +3,7 @@ import Test from "./pages/Test";
 import User from "./pages/Users";
 import Album from "./pages/Album";
 import AlbumDetail from "./pages/AlbumDetail";
+import UserDetail from "./pages/UserDetail";
 function App() {
   return (
     <Router
@@ -13,7 +14,7 @@ function App() {
     > 
       <Routes>
         <Route path="/user" element={<User />} />
-        <Route path="/user/:userID" element={<User />} />
+        <Route path="/user/:userID" element={<UserDetail />} />
         <Route path="/album" element={<Album />} /> 
         <Route path="/album/:albumID" element={<AlbumDetail />} /> 
         <Route path="/test" element={<Test />} />  
