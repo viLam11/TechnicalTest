@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import { Routes, Route, BrowserRouter as Router, Navigate } from "react-router-dom";
 import Test from "./pages/Test";
 import User from "./pages/Users";
 import Album from "./pages/Album";
@@ -13,6 +13,7 @@ function App() {
     }}
     > 
       <Routes>
+        <Route path="/" element={<Navigate to="/album" replace />} />
         <Route path="/user" element={<User />} />
         <Route path="/user/:userID" element={<UserDetail />} />
         <Route path="/album" element={<Album />} /> 
