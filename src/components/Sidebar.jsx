@@ -7,7 +7,7 @@ export default function Sidebar({page}) {
     const navigate = useNavigate();
 
     return( 
-        <div className="bg-white md:w-48 sticky h-full min-h-screen text-sm">
+        <div className="bg-white w-56 sticky h-full min-h-screen text-sm">
             <div className="logo">
                 <img src="https://geekup.vn/Icons/gu-logo-general.png" alt="GeekUp-logo" className="p-4" />
             </div>
