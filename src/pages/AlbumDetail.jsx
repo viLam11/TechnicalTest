@@ -10,6 +10,8 @@ export default function AlbumDetail() {
     const [album, setAlbum] = useState({});
     const [users, setUsers] = useState([]);
     const [user, setUser] = useState({});
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedImage, setSelectedImage] = useState(null);
 
     const navigate = useNavigate();
 
@@ -46,7 +48,18 @@ export default function AlbumDetail() {
         }
     }, [album, users]);
 
-    console.log("Check albumID: ", albumID);
+
+    const openModal = (imageUrl) => {
+        setSelectedImage(imageUrl);
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setSelectedImage(null);
+    };
+
+
     return (
         <div className="flex flex-row">
             <Sidebar page="album" />
@@ -63,7 +76,7 @@ export default function AlbumDetail() {
                     </div>
                     <div className="mt-1">
                         <span className="mr-2 font-normal text-gray-700 hover:bg-gray-200 p-1 rounded-lg" >
-                            <FontAwesomeIcon icon={faArrowLeft} onClick={() =>{navigate('/album')}} />
+                            <FontAwesomeIcon icon={faArrowLeft} onClick={() => { navigate('/album') }} />
                         </span>
                         <span className="text-lg font-semibold">Show Album</span>
                     </div>
@@ -93,7 +106,10 @@ export default function AlbumDetail() {
                                 {photos.map((photo, index) => {
                                     return (
                                         <div key={index} className="">
-                                            <img src={photo.url} alt="" />
+                                            <img src={photo.url} alt=""
+                                                className="cursor-pointer"
+                                                onClick={() => openModal(photo.url)}
+                                            />
                                         </div>
                                     )
                                 })}
@@ -102,6 +118,25 @@ export default function AlbumDetail() {
                     </div>
                 </div>
             </div>
+
+            {isModalOpen && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div className="relative bg-white  w-[600px] h-[600px] flex items-center justify-center">
+                        <button
+                            className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+                            onClick={closeModal}
+                        >
+                            ✖
+                        </button>
+                        <img
+                            src={selectedImage}
+                            alt="Selected"
+                            className="w-full h-full object-cover"
+                        />
+                    </div>
+                </div>
+            )}
+
         </div>
     )
 }
